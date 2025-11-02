@@ -18,6 +18,27 @@ img {
   display: block;
 }
 
+/* Membuat navbar bisa digeser horizontal di layar kecil */
+nav {
+  display: flex;
+  overflow-x: auto; /* Aktifkan scroll horizontal */
+  white-space: nowrap; /* Supaya item tidak turun ke bawah */
+  -webkit-overflow-scrolling: touch; /* Scroll lembut di HP */
+}
+
+/* Styling item menu */
+nav a {
+  flex: 0 0 auto; /* Supaya setiap item tidak mengecil */
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+}
+
+/* Opsional: menyembunyikan scrollbar (biar rapi) */
+nav::-webkit-scrollbar {
+  display: none;
+}
+
    body {
       font-family: Arial, sans-serif;
       margin: 0;
