@@ -6,7 +6,6 @@ html, body {
   overflow-x: hidden;
   box-sizing: border-box;
 }
-
 * {
   box-sizing: inherit;
 }
@@ -576,6 +575,45 @@ h1, h2, h3, p {
 
     }
   }
+  
+/* ======== NAVBAR SCROLL RESPONSIVE ======== */
+.scroll-nav {
+  width: 100%;
+  overflow-x: auto;
+  background-color: #0f2729; /* warna background navbar */
+  white-space: nowrap;
+  scrollbar-width: none; /* sembunyikan scrollbar di Firefox */
+}
+
+.scroll-nav::-webkit-scrollbar {
+  display: none; /* sembunyikan scrollbar di Chrome/Safari */
+}
+
+.scroll-container {
+  display: inline-flex;
+  padding: 10px 15px;
+  gap: 15px;
+}
+
+.scroll-container a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+.scroll-container a:hover {
+  background-color: #325b5f;
+}
+
+.scroll-container a.active {
+  background-color: #4a787d;
+}
+
+
 /* Footer */
 footer {
   background-color: #4a787d;
