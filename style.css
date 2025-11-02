@@ -575,7 +575,13 @@ h1, h2, h3, p {
 
     }
   }
-  
+/* Footer */
+footer {
+  background-color: #4a787d;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+}
 /* ======== NAVBAR SCROLL RESPONSIVE ======== */
 .scroll-nav {
   width: 100%;
@@ -611,13 +617,4 @@ h1, h2, h3, p {
 
 .scroll-container a.active {
   background-color: #4a787d;
-}
-
-
-/* Footer */
-footer {
-  background-color: #4a787d;
-  color: white;
-  text-align: center;
-  padding: 15px 0;
 }
