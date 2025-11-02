@@ -2,7 +2,6 @@
 html, body {
   margin: 0;
   padding: 0;
-  padding-top: 80px; /* sesuaikan dengan tinggi navbar kamu */
   width: 100%;
   overflow-x: hidden;
   box-sizing: border-box;
@@ -57,17 +56,8 @@ nav::-webkit-scrollbar {
       justify-content: center;
       padding: 10px;
     }
-    nav {
-     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #0a1a1a; /* sesuaikan warnanya */
-    z-index: 1000; /* supaya di atas elemen lain */
-  }
-
-    nav a {
-      color: black;
+     nav a {
+      color: #3a7070;
       text-decoration: none;
       margin: 0 15px;
       font-weight: bold;
