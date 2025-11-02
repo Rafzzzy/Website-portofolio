@@ -1,4 +1,24 @@
-    body {
+  /* Pastikan halaman menyesuaikan lebar layar HP */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
+}
+
+/* Gambar menyesuaikan ukuran layar */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+   body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
@@ -43,7 +63,7 @@
     }
 
 /* Responsif di HP */
-@media (max-width: 768px) {
+@media screen and (max-width: 500px) {
   .beranda-container {
     flex-direction: column-reverse;
     align-items: center;
@@ -54,7 +74,48 @@
     max-width: 250px;
     margin-top: 20px;
   }
+  /* Pastikan semua elemen utama tidak keluar layar */
+.container, section, header, main, footer {
+  max-width: 100%;
+  box-sizing: border-box;
 }
+
+/* Responsive image */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Responsive teks agar pas di layar HP */
+h1, h2, h3, p {
+  word-wrap: break-word;
+  line-height: 1.5;
+}
+
+/* Sesuaikan padding dan font size untuk HP */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+
+  header, section {
+    padding: 10px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav a {
+    padding: 8px;
+    display: block;
+  }
+}
+
+}
+
 
 /* =====  SECTION(beranda)===== */
 .hero-section {
@@ -278,10 +339,16 @@
 .tool-card p {
   font-size: 14px;
   color: #555;
+  /* Responsif untuk HP */
+@media screen and (max-width: 500px) {
+  #keahlihan {
+    padding: 20px;
+  }
 }
 
+
 /* ====Section proyek====*/
-#proyek {
+#proyek{
   padding: 40px 80px;
   background-color: #f9fafa;
 }
@@ -346,11 +413,6 @@
   transform: scale(1.05);
   box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
-/* Responsif untuk HP */
-@media (max-width: 768px) {
-  #proyek {
-    padding: 20px;
-  }
 
   .project-gallery img {
     width: 90%;
@@ -431,13 +493,68 @@
       font-size: 14px;
     }
 
-    @media (max-width: 768px) {
+    @media screen and (max-width: 500px) {
       .contact-container {
         flex-direction: column;
         align-items: center;
-      }
-    }
+        /* === RESPONSIVE UNTUK HP === */
+@media (max-width: 768px) {
+  /* Header & judul */
+  header, .hero, .intro, section {
+    padding: 15px;
+    text-align: center;
+  }
 
+  h1, h2, h3 {
+    font-size: 1.5em;
+    line-height: 1.3;
+  }
+
+  /* Menu navigasi */
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  nav li {
+    margin: 5px 0;
+    list-style: none;
+  }
+
+  nav a {
+    display: block;
+    padding: 10px;
+  }
+
+  /* Layout utama */
+  .container, .content, .about {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .text-section, .image-section {
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  /* Agar paragraf tidak mepet pinggir */
+  p {
+    font-size: 16px;
+    padding: 0 10px;
+  }
+
+  /* Tombol, link, dsb menyesuaikan layar */
+  button, a {
+    width: auto;
+    font-size: 1em;
+  }
+}
+
+    }
+  }
 /* Footer */
 footer {
   background-color: #4a787d;
