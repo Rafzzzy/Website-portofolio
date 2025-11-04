@@ -19,19 +19,21 @@ img {
 
 /* Membuat navbar bisa digeser horizontal di layar kecil */
 nav {
-  display: flex;
-  overflow-x: auto; /* Aktifkan scroll horizontal */
-  white-space: nowrap; /* Supaya item tidak turun ke bawah */
-  -webkit-overflow-scrolling: touch; /* Scroll lembut di HP */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #0a1a1a;
+  z-index: 1000;
+  padding: 15px 0;
+}
+
+body {
+  padding-top: 90px;
 }
 
 /* Styling item menu */
 nav a {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100;
-  z-index: 100%;
   flex: 0 0 auto; /* Supaya setiap item tidak mengecil */
   padding: 10px 20px;
   color: white;
