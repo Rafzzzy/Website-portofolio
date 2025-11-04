@@ -1,49 +1,54 @@
-  /* Pastikan halaman menyesuaikan lebar layar HP */
-html, body {
-  margin: 0;
-  padding-top: 80px;
-  width: 100%;
-  overflow-x: hidden;
-  box-sizing: border-box;
-}
-* {
-  box-sizing: inherit;
-}
-
-/* Gambar menyesuaikan ukuran layar */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Membuat navbar bisa digeser horizontal di layar kecil */
+ /* Navbar */
 nav {
-  position: fixed;
+  position: fixed;       /* agar tetap di atas saat discroll */
   top: 0;
   left: 0;
   width: 100%;
   background-color: #0a1a1a;
-  z-index: 1000;
-  padding: 15px 0;
+  z-index: 1000;         /* supaya tidak ketutupan elemen lain */
+  display: flex;
+  justify-content: center; /* posisi di tengah */
+  align-items: center;
+  padding: 15px 0;       /* tinggi navbar */
 }
 
-body {
-  padding-top: 90px;
+/* Daftar menu di navbar */
+nav ul {
+  list-style: none;      /* hilangkan bullet */
+  display: flex;
+  gap: 25px;             /* jarak antar menu */
+  margin: 0;
+  padding: 0;
 }
 
-/* Styling item menu */
-nav a {
-  flex: 0 0 auto; /* Supaya setiap item tidak mengecil */
-  padding: 10px 20px;
+/* Teks link di navbar */
+nav ul li a {
   color: white;
   text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
 }
 
-/* Opsional: menyembunyikan scrollbar (biar rapi) */
-nav::-webkit-scrollbar {
-  display: none;
+nav ul li a:hover {
+  color: #5eead4; /* warna hover */
 }
+
+/* Tambah jarak atas agar konten tidak ketutupan */
+body {
+  padding-top: 80px; /* sesuaikan dengan tinggi navbar */
+}
+@media (max-width: 768px) {
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  body {
+    padding-top: 100px;
+  }
+}
+
 
    body {
       font-family: Arial, sans-serif;
