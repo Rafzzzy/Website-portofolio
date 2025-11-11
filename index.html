@@ -18,14 +18,15 @@
 
  <nav class="scroll-nav">
   <div class="scroll-container">
-    <a href="#" onclick="showSection('beranda')" class="active">Beranda</a>
-    <a href="#" onclick="showSection('tentang')">Tentang</a>
-    <a href="#" onclick="showSection('education')">Education</a>
-    <a href="#" onclick="showSection('keahlian')">Keahlian</a>
-    <a href="#" onclick="showSection('proyek')">Proyek</a>
-    <a href="#" onclick="showSection('kontak')">Kontak</a>
+    <a href="#" onclick="showSection('beranda', event)" class="active">Beranda</a>
+    <a href="#" onclick="showSection('tentang', event)">Tentang</a>
+    <a href="#" onclick="showSection('education', event)">Education</a>
+    <a href="#" onclick="showSection('keahlian', event)">Keahlian</a>
+    <a href="#" onclick="showSection('proyek', event)">Proyek</a>
+    <a href="#" onclick="showSection('kontak', event)">Kontak</a>
   </div>
 </nav>
+
 
 
   <!-- Beranda -->
@@ -33,9 +34,8 @@
   <div class="hero-container">
     <div class="hero-text">
       <p class="intro-text">— MY NAME IS</p>
-      <h1 class="hero-name">
-        Rafi <span>Hilmi</span>
-      </h1>
+      <h1 class="hero-name typewriter" id="animatedName">Rafi Hilmi</h1>
+
       <p class="hero-description">
         Seorang pelajar SMKN 12 Surabaya yang memiliki minat besar di bidang Web Development, 
         UI/UX Design, serta pengembangan aplikasi berbasis teknologi. 
@@ -215,22 +215,68 @@
   "><b>Back</b></a>
 
   <script>
-    function showSection(sectionId) {
-      // sembunyikan semua konten
-      let sections = document.querySelectorAll('.content');
-      sections.forEach(sec => sec.classList.remove('active'));
+  function showSection(sectionId, event) {
+    // sembunyikan semua konten
+    let sections = document.querySelectorAll('.content');
+    sections.forEach(sec => sec.classList.remove('active'));
 
-      // hapus active di semua menu
-      let links = document.querySelectorAll('nav a');
-      links.forEach(link => link.classList.remove('active'));
+    // hapus active di semua menu
+    let links = document.querySelectorAll('nav a');
+    links.forEach(link => link.classList.remove('active'));
 
-      // tampilkan konten sesuai menu
-      document.getElementById(sectionId).classList.add('active');
+    // tampilkan konten sesuai menu
+    const targetSection = document.getElementById(sectionId);
+    if (targetSection) targetSection.classList.add('active');
 
-      // aktifkan link yang dipilih
+    // aktifkan link yang dipilih (jika ada event)
+    if (event && event.target) {
       event.target.classList.add('active');
+    } else {
+      // fallback: cari link dengan teks cocok dan beri active
+      const fallbackLink = Array.from(links).find(a => a.getAttribute('onclick') && a.getAttribute('onclick').includes("'" + sectionId + "'"));
+      if (fallbackLink) fallbackLink.classList.add('active');
     }
-  </script>
+  }
+</script>
+<script>
+/* TYPEWRITER: per-huruf dengan fade-in */
+function typeWriterWithFade(el, options = {}) {
+  if (!el) return;
+  const text = el.textContent || "";
+  el.textContent = "";
+  el.classList.add("typewriter");
+
+  const charDelay = options.charDelay ?? 70;   // ms antar huruf
+  const firstDelay = options.firstDelay ?? 150; // ms sebelum mulai
+
+  for (let i = 0; i < text.length; i++) {
+    const ch = text.charAt(i);
+    const span = document.createElement("span");
+    span.className = "char";
+    span.textContent = ch;
+    const delaySec = (firstDelay + i * charDelay) / 1000;
+    span.style.animationDelay = `${delaySec}s`;
+    el.appendChild(span);
+  }
+
+  // hapus caret setelah selesai (opsional)
+  const totalMs = firstDelay + text.length * charDelay + 500;
+  setTimeout(() => {
+    el.classList.remove("typewriter");
+  }, totalMs);
+}
+
+/* jalankan setelah DOM siap */
+document.addEventListener("DOMContentLoaded", () => {
+  const nameEl = document.getElementById("animatedName");
+  if (nameEl) typeWriterWithFade(nameEl, { charDelay: 70, firstDelay: 150 });
+});
+</script>
+
+
+   
+
+
   
   <footer>
     <p><b>© 2025 Rafi Hilmi Anggara B. All rights reserved.</b></p>

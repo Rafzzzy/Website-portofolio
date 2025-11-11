@@ -62,6 +62,61 @@ header p { margin: 4px 0; color: #e6f0ef; }
 @keyframes fadeIn { from {opacity:0} to {opacity:1} }
 
 /* ========== HERO / BERANDA ========== */
+/* cursor blink (tetap ada selama animasi berjalan) */
+.hero-name.typewriter::after {
+  content: '|';
+  margin-left: 6px;
+  color: #4a787d;
+  animation: blink 0.7s infinite;
+}
+
+/* setiap huruf akan muncul dengan fade + slide-up */
+.hero-name.typewriter .char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(6px);
+  animation-name: fadeInUp;
+  animation-duration: 420ms;
+  animation-fill-mode: forwards; /* tetap setelah anim selesai */
+  animation-timing-function: ease-out;
+}
+
+/* animasi huruf */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* kursor berkedip */
+@keyframes blink {
+  0%,100% { opacity: 1; }
+  50%     { opacity: 0; }
+}
+/* Typewriter fade-up per huruf (untuk #animatedName) */
+.hero-name.typewriter .char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(6px);
+  animation-name: fadeInUp;
+  animation-duration: 420ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+/* caret (kursor) */
+.hero-name.typewriter::after {
+  content: '|';
+  margin-left: 6px;
+  color: #4a787d;
+  animation: blink 0.7s steps(1) infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+
+
 .hero-container {
   display: flex;
   align-items: center;
